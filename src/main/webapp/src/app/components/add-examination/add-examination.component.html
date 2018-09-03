@@ -1,0 +1,30 @@
+<div class="container">
+
+  <form [formGroup]="examinationForm" id="examinationForm" (ngSubmit)="onExaminationSubmit()" novalidate>
+
+   Nazwa badania <input class="form-control" formControlName="name">
+   <!-- <input class="form-control" formControlName="type"> -->
+   Typ badania<select class="custom-select" id="inputGroupSelect01" formControlName="type">
+    <option value="0">MORFOLOGIA</option>
+    <option value="1">REZONANS</option>
+    <option value="2">TOMOGRAFIA</option>
+  </select>
+<hr>
+    <form [formGroup]="questionForm" id="questionForm" (ngSubmit)="onQuestionSubmit(questionForm.value)"  novalidate>
+     
+      <input class="form-control" formControlName="name">
+
+     
+      <button type="submit" form="questionForm">add Question</button>
+      
+  </form>
+</form>
+<div class="list-group col-md-7">
+<a *ngFor="let question of questionList; let i = index" class="question-name list-group-item
+list-group-item-action list-group-item-primary">
+ {{i+1}}. {{question.name}}
+</a>
+
+
+<button type="submit" form="examinationForm">add Examination </button>
+</div>

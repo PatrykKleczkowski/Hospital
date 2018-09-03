@@ -1,0 +1,26 @@
+<div class="container">
+    <router-outlet></router-outlet>
+ 
+ <table class="table table-striped">
+<thead>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Operation</th>
+</thead>
+<tbody>
+    <tr *ngFor="let examination of examinations; let i=index">
+        <td>{{examination.id}}</td>
+        <td>{{examination.name}}</td>
+        <td>{{examination.type}}</td>
+       <!-- <td><a [routerLink]="['/examinationList',examination.id,'questions']">Edit</a> </td> -->
+       <td>  <button class="btn btn-outline-info btn-sm" (click)="deleteExamination(examination)">DELETE </button>
+        <button class="btn btn-outline-info btn-sm" [routerLink]="['/examinationList/', examination.id, 'questions']" >
+             Show Questions </button>
+    </td>
+      </tr>
+</tbody>
+</table>
+<button class="btn btn-success" routerLink="/examinationList/upsert" href="/examinationList/upsert">New Examination</button>
+</div>
+

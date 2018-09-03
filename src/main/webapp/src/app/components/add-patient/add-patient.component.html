@@ -1,0 +1,18 @@
+<div class="container">
+
+    <form (ngSubmit)="processForm()" novalidate>
+ 
+        <div class="form group">
+            <label for="name">Name</label>
+            <input type="text" name="name" class="form-control" [(ngModel)]="patient.name">
+        </div>
+        <div class="form group">
+            <label for="pesel">Pesel</label>
+            <input type="text" name="pesel" class="form-control" [(ngModel)]="patient.pesel">
+        </div>
+        <input type="submit" value="save" class="btn btn-success">
+
+        <p *ngIf="nameWhitespaceError" class="error">Dupa</p>
+
+    </form>
+</div>

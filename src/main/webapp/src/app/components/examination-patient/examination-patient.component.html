@@ -1,0 +1,27 @@
+<mat-form-field class="example-full-width">
+    <input matInput placeholder="Favorite food" value="Sushi">
+  </mat-form-field>
+
+<form>
+  <mat-form-field>
+    <mat-select placeholder="Choose Patient" [(ngModel)]="selectedPatient" name="patient">
+      <mat-option *ngFor="let patient of patients" [value]="patient">
+        {{patient.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <mat-select placeholder="Choose Examination" [(ngModel)]="selectedExamination" name="examination">
+      <mat-option *ngFor="let examination of examinations" [value]="examination">
+        {{examination.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <button mat-fab color="primary" (click)="openExamPatientDialog(selectedExamination, selectedPatient)">Start!</button>
+  <button mat-fab color="accent" (click)="openExamPatientDialog(selectedExamination, selectedPatient)">Start!</button>
+
+</form>
